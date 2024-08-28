@@ -1,0 +1,34 @@
+name: Build and Deploy Client
+
+on:
+  push:
+    branches:
+      - main  # Cambia con il nome del branch su cui vuoi attivare il workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Usa la versione di Node.js necessaria
+
+      - name: Install dependencies
+        run: |
+          cd client
+          npm install --legacy-peer-deps  # Usa il flag per risolvere i conflitti di dipendenza
+
+      - name: Build client
+        run: |
+          cd client
+          npm run build
+
+      - name: Deploy client
+        run: |
+          # Inserisci qui i comandi per il deploy, se necessario
+          echo "Deployment step not included"
