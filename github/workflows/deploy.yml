@@ -3,7 +3,7 @@ name: Build and Deploy Client
 on:
   push:
     branches:
-      - main  # Cambia con il nome del branch su cui vuoi attivare il workflow
+      - main
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Usa la versione di Node.js necessaria
+          node-version: '18'
 
       - name: Install dependencies
         run: |
